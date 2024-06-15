@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - main
+    pull_request:
+      branches:
+        - main
 
 jobs:
   build-and-deploy:
@@ -17,7 +20,7 @@ jobs:
           node-version: 14
 
       - name: Install dependencies
-        run: npm ci
+        run: npm run install
 
       - name: Build
         run: npm run build
@@ -26,7 +29,7 @@ jobs:
         uses: jakejarvis/s3-sync-action@master
         with:
           args: --acl public-read --follow-symlinks --delete
-          bucket: nombre-de-tu-bucket
+          bucket: portfolio-13-06-2024
           key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           region: us-west-2
