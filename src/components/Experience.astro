@@ -1,0 +1,37 @@
+---
+import ExperienceSlots from "./ExperienceSlots.astro"
+const experience = [
+    {
+        date: "Currently",
+        title: "Senior Software Engineer ",
+        company: "Wizeline",
+        description: "Working with the best team to create amazing products. I'm currently working on the Wizeline Academy platform, where we are creating a platform to teach people how to code. I'm also a Twitch streamer, where I teach people how to code.",
+        link: "https://www.wizeline.com/",
+    },
+    {
+        date: "Sep 2022 - Sep 2023",
+        title: "Mid Software Engineer",
+        company: "Jobsity",
+        description:"I worked with a team of developers to create amazing products for our clients. I was part of the team that created the Jobsity Academy platform, where we teach people how to code.",
+        link: "https://www.jobsity.com/",
+    },
+    {
+        date: "Sep 2021 - Sep 2022",
+        title: "Junior Software Engineer",
+        company: "World Pos Solutions",
+        description: "I worked with a team of developers to create amazing products for our clients. I was part of the team that created the World Pos Solutions platform, where we teach people how to code.",
+    },
+    {
+        date: "Sep 2020 - Sep 2021",
+        title: "Web developer",
+        company: "Freelance",
+        description: "I worked with a team of developers to create amazing products for our clients. I was part of the team that created the World Pos Solutions platform, where we teach people how to code.",
+    }
+]
+---
+
+<ol class="relative mt-16">
+    {experience.map((item, index) => (
+        <ExperienceSlots {...item} />
+    ))}
+</ol>

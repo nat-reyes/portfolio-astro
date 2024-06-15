@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Badge from "../components/Badge.astro";
+import LinkedInIcon from "../icons/LinkedIn.astro"
+import SocialPill from "../components/Social.astro"
+import MailIcon from "../icons/Mail.astro"
+import GithubIcon from "../icons/Github.astro"
+import SectionContainer from "../components/SectionContainer.astro";
+import Experience from "../components/Experience.astro";
+import Briefcase from "../icons/Briefcase.astro";
+import CodeIcon from "../icons/Code.astro"
+import Education from "../components/Education.astro";
+import { education, volunteering } from "../constants";
+console.log(education, volunteering)
+---
+
+<Layout title="Nat Reyes Portfolio, software engineer +4 yeras of experience."
+        description="Contact Nat Reyes for web development.">
+    <main>
+        <SectionContainer class="w-full mx-auto py-20">
+            <div >
+                <h1 class="text-5xl font-bold flex justify-center flex-row gap-x-4 mb-4"> Hey there! I am Nat <a
+                        href="https://www.linkedin.com/in/nat-reyes/" target="_blank" rel="noopener"
+                        class="flex justify-center items-center mt-1">
+                    <Badge> Available</Badge>
+                </a></h1>
+                <h2 class="text-2xl opacity-80l"><span>+4 years of experience.</span> <span
+                        class="text-blue-950 font-bold"> Software Engineer specialized in javascript
+                technologies and web development.</span> <span class="flex flex-row mt-4 font-bold gap-x-2"> <span
+                        class="text-amber-500">Located in </span> <span class="text-blue-700"> Medellin, </span> <span
+                        class="text-red-800"> Colombia </span> <img class="w-6 h-6" src="../../public/pin.png"
+                                                                    alt="location icon"/> </span></h2>
+                <nav class="flex flex-wrap gap-4 mt-8">
+                    <SocialPill href="mailto:aylin.reyes.8@gmail.com">
+                        <MailIcon class="size-4"/>
+                        Contact me
+                    </SocialPill>
+                    <SocialPill href="https://linkedin.com/in/nat-reyes">
+                        <LinkedInIcon class="size-4"/>
+                        LinkedIn
+                    </SocialPill>
+                    <SocialPill href="https://github.com/nat-reyes">
+                        <GithubIcon class="size-4"/>
+                        Github
+                    </SocialPill>
+                </nav>
+            </div>
+        </SectionContainer>
+        <SectionContainer id="experience">
+            <h2 class="flex items-center mb-10 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
+                <Briefcase class="size-8"/>
+                Work Experience
+            </h2>
+            <Experience/>
+        </SectionContainer>
+        <SectionContainer class="mt-20" id="education">
+            <h2 class="flex items-center mb-10 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
+                <CodeIcon class="size-7"/>
+                Education
+            </h2>
+            <Education data={education} />
+        </SectionContainer>
+        <SectionContainer id="volunteering">
+            <h2 class="flex items-center mb-10 mt-10 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
+                <img src="../../public/volunteering.png" class="size-7"/>
+                Volunteering
+            </h2>
+            <Education data={volunteering} />
+        </SectionContainer>
+    </main>
+</Layout>
+
+<style>
+
+</style>
