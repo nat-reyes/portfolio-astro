@@ -1,37 +1,28 @@
-name: Build and Deploy
+name: Deploy Website
+
 on:
   push:
     branches:
       - main
       - feat/github-actions
-    pull_request:
-      branches:
-        - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          node-version: 18.17.1
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Install modules
+        run: npm ci
+      - name: Build application
         run: npm run build
-
       - name: Deploy to S3
-        uses: jakejarvis/s3-sync-action@master
-        with:
-          args: --acl public-read --follow-symlinks --delete
-          bucket: portfolio-13-06-2024
-          key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          secret: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          region: us-west-2
-          source: ./dist
+        run: aws s3 sync --delete ./dist/ s3://${{ secrets.BUCKET_ID }}
+      - name: Create CloudFront invalidation
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
