@@ -23,30 +23,14 @@ const {title, company, description, link, date} = Astro.props
         </div>
     </div>
     <div class="relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3">
-        {description}
-        {
-            link && (
-                        <LinkInline href={link}>
-                            Read more{" "}
-                            <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="w-5 icon icon-tabler icon-tabler-chevron-right"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="2"
-                                    stroke="currentColor"
-                                    fill="none"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                            >
-                                <>
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M9 6l6 6l-6 6"/>
-                                </>
-                            </svg>
-                        </LinkInline>
-            )
-        }
+<div class="relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3">
+    {
+        description.split('\n').map((line) => (
+                <ul class="list-disc list-item">
+                    <li>{line}</li>
+                </ul>
+        ))
+    }
+    </div>
     </div>
 </div>

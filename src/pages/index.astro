@@ -11,23 +11,33 @@ import Briefcase from "../icons/Briefcase.astro";
 import CodeIcon from "../icons/Code.astro"
 import Education from "../components/Education.astro";
 import { education, volunteering } from "../constants";
-console.log(education, volunteering)
+import { Image } from 'astro:assets';
+import volunteeringIcon from "../../public/volunteering.png"
+
+const myInformation = {
+    summary: "I specialize in JavaScript technologies, particularly React.js and Next.js, and have a proven track record of enhancing user experiences and optimizing performance. My collaborative work with UX designers has equipped me with the ability to create intuitive and user-friendly interfaces. I have successfully contributed to high-impact projects, including marketing websites and large-scale applications, consistently delivering high-quality solutions."
+}
 ---
 
 <Layout title="Nat Reyes Portfolio, software engineer +4 yeras of experience."
         description="Contact Nat Reyes for web development.">
     <main>
         <SectionContainer class="w-full mx-auto py-20">
-            <div >
-                <h1 class="text-5xl font-bold flex justify-center flex-row gap-x-4 mb-4"> Hey there! I am Nat <a
+            <div>
+                <h1 class="text-5xl text-blue-950  font-bold flex justify-center flex-row gap-x-4 mb-4"> Hey there! I am Nat <a
                         href="https://www.linkedin.com/in/nat-reyes/" target="_blank" rel="noopener"
                         class="flex justify-center items-center mt-1">
-                    <Badge> Available!!</Badge>
-                </a></h1>
-                <h2 class="text-2xl opacity-80l"><span>+4 years of experience.</span> <span
+                </a>
+                </h1>
+                <br/>
+                <h2 class="text-2xl mt-2 opacity-80l"><span>+4 years of experience.</span> <span
                         class="text-blue-950 font-bold"> Software Engineer specialized in javascript
-                technologies and web development.</span> <span class="flex flex-row mt-4 font-bold gap-x-2"> <span
-                        class="text-amber-500">Located in </span> <span class="text-blue-700"> Medellin, </span> <span
+                technologies and web development.</span>
+
+                    <br/>
+                    <span class="text-2xl opacity-80l"> {myInformation.summary}</span>
+                    <span class="flex flex-row mt-4 font-bold gap-x-2">
+                    <span class="text-amber-500">Located in </span> <span class="text-blue-700"> Medellin, </span> <span
                         class="text-red-800"> Colombia </span> <img class="w-6 h-6" src="../../public/pin.png"
                                                                     alt="location icon"/> </span></h2>
                 <nav class="flex flex-wrap gap-4 mt-8">
@@ -62,7 +72,7 @@ console.log(education, volunteering)
         </SectionContainer>
         <SectionContainer id="volunteering">
             <h2 class="flex items-center mb-10 mt-10 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
-                <img src="../../public/volunteering.png" class="size-7"/>
+                <Image src={volunteeringIcon} alt="volunteering icon" class="size-7"/>
                 Volunteering
             </h2>
             <Education data={volunteering} />

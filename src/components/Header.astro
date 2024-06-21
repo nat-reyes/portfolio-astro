@@ -23,9 +23,20 @@ const navItems = [
         url: "mailto:aylin.reyes.8@gmail.com",
     },
 ]
+import { Image } from 'astro:assets';
+
+
 ---
-<header class="flex justify-between items-center py-3 w-[1120px] mx-auto">
-    <img src={avatar?.src} alt="logo" class="rounded-full w-12 h-12">
+<style>
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 1000; /* Esto asegura que el header esté por encima de otros elementos */
+        background-color: inherit; /* Esto asegura que el header no sea transparente */
+    }
+</style>
+<header class="flex justify-between items-center py-3 w-[1120px] mx-auto" >
+    <Image src={avatar} alt="logo" class="rounded-full w-12 h-12"/>
     <nav class="flex flex-row gap-x-10 opacity-70 font-bold">
         {
             navItems.map((link) => (

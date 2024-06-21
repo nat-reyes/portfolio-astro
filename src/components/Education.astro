@@ -1,7 +1,7 @@
 ---
 import Link from "../icons/Link.astro"
 import LinkButton from "../components/LinkButton.astro"
-
+import { Image } from 'astro:assets';
 ---
 
 <div class="grid grid-cols-2 gap-4">
@@ -10,9 +10,9 @@ import LinkButton from "../components/LinkButton.astro"
                 <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
                     <div>
                         <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:w-20 md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:hover:bg-gray-800/50">
-                            <img alt="education place"
+                            <Image alt="education place"
                                  class="object-cover object-top w-full h-10 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
-                                 loading="lazy" src={certifiedByIcon}/>
+                                   loading="lazy" src={certifiedByIcon}/>
                         </div>
                     </div>
 
