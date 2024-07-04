@@ -9,9 +9,9 @@ import { Image } from 'astro:assets';
         Astro.props.data.map(({certifiedByIcon, title, tags, link}) => (
                 <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
                     <div>
-                        <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:w-20 md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:hover:bg-gray-800/50">
+                        <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:w-10 md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:hover:bg-gray-800/50">
                             <Image alt="education place"
-                                 class="object-cover object-top w-full h-10 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+                                 class="object-cover object-top w-10 h-10 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
                                    loading="lazy" src={certifiedByIcon}/>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ const { description, title } = Astro.props
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" type="image/svg+xml" href="../../public/web.png"/>
 		<meta name="generator" content={description} />
 		<title>{title}</title>
@@ -39,8 +39,14 @@ const { description, title } = Astro.props
 		display: flex;
 		flex-direction: column;
 		background: #F3F4FF;
-		min-height: 100vh;
 		overscroll-behavior: none;
+
+		@media (max-width: 768px) {
+			width: 1200px;
+			margin: 0 auto;
+			padding-inline: 30px;
+
+		}
 	}
 
 	code {
