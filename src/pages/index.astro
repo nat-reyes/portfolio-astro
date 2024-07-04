@@ -21,8 +21,8 @@ const myInformation = {
 
 <Layout title="Nat Reyes Portfolio, software engineer +4 yeras of experience."
         description="Contact Nat Reyes for web development.">
-    <main>
-        <SectionContainer class="w-full mx-auto py-20">
+    <main class="w-full py-2">
+        <SectionContainer class="w-full mx-auto py-20 px-4">
             <div>
                 <h1 class="text-5xl text-blue-950  font-bold flex justify-center flex-row gap-x-4 mb-4"> Hey there! I am Nat <a
                         href="https://www.linkedin.com/in/nat-reyes/" target="_blank" rel="noopener"
@@ -30,12 +30,12 @@ const myInformation = {
                 </a>
                 </h1>
                 <br/>
-                <h2 class="text-2xl mt-2 opacity-80l"><span>+4 years of experience.</span> <span
+                <h2 class="lg:text-2xl mt-2 opacity-80l xs:text-sm"><span>+4 years of experience.</span> <span
                         class="text-blue-950 font-bold"> Software Engineer specialized in javascript
                 technologies and web development.</span>
-
                     <br/>
-                    <span class="text-2xl opacity-80l"> {myInformation.summary}</span>
+                    <br/>
+                    <span class="lg:text-xl xs:text-sm"> {myInformation.summary}</span>
                     <span class="flex flex-row mt-4 font-bold gap-x-2">
                     <span class="text-amber-500">Located in </span> <span class="text-blue-700"> Medellin, </span> <span
                         class="text-red-800"> Colombia </span> <img class="w-6 h-6" src="../../public/pin.png"
@@ -57,21 +57,21 @@ const myInformation = {
             </div>
         </SectionContainer>
         <SectionContainer id="experience">
-            <h2 class="flex items-center mb-10 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
+            <h2 class="flex items-center mb-10 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white xs:text-2xl">
                 <Briefcase class="size-8"/>
                 Work Experience
             </h2>
             <Experience/>
         </SectionContainer>
         <SectionContainer class="mt-20" id="education">
-            <h2 class="flex items-center mb-10 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
+            <h2 class="flex items-center mb-10 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white xs:text-2xl">
                 <CodeIcon class="size-7"/>
                 Education
             </h2>
             <Education data={education} />
         </SectionContainer>
         <SectionContainer id="volunteering">
-            <h2 class="flex items-center mb-10 mt-10 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
+            <h2 class="flex items-center mb-10 mt-10 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white xs:text-2xl">
                 <Image src={volunteeringIcon} alt="volunteering icon" class="size-7"/>
                 Volunteering
             </h2>

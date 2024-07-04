@@ -4,36 +4,38 @@ import LinkButton from "../components/LinkButton.astro"
 import { Image } from 'astro:assets';
 ---
 
-<div class="grid grid-cols-2 gap-4">
+<div class="grid grid-cols-2 gap-4 px-2">
     {
         Astro.props.data.map(({certifiedByIcon, title, tags, link}) => (
-                <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-                    <div>
-                        <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:w-10 md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:hover:bg-gray-800/50">
+                <article class="flex flex-col xs:flex xs:flex-row  xs:space-y-1 xs:space-x-4">
+                        <div class="mt-2 w-[40%] xs:w-[25%] xs:h-[3rem] flex flex-col items-center  gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:w-10 md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:hover:bg-gray-800/50">
                             <Image alt="education place"
-                                 class="object-cover object-top w-10 h-10 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+                                 class="w-10 h-10object-cover object-top xs:w-[3rem] xs:h-[3.5rem] transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
                                    loading="lazy" src={certifiedByIcon}/>
                         </div>
-                    </div>
 
-                    <div class="md:max-w-lg">
-                        <h3 class="text-[16px] font-bold text-gray-800 dark:text-gray-100">
+                    <div class="w-[60%] md:max-w-lg xs:w-[75%]">
+                        <h3 class="text-[16px] font-bold text-gray-800 dark:text-gray-100 xs:text-sm">
                             {title}
                         </h3>
-                        <div class="flex flex-wrap mt-2">
-                            <ul class="flex flex-row mb-2 gap-x-2">
-                                {tags.map((tag) => (
-                                        <li>
-                                          <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}>{tag.name}</span>
-                                        </li>
-                                ))}
-                            </ul>
-                        </div>
+                        {
+                            tags?.length > 0 && (
+                                        <div class="flex flex-wrap mt-2">
+                                            <ul class="flex flex-row mb-2 gap-x-2">
+                                                {tags.map((tag) => (
+                                                        <li>
+                                                            <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2  lg:text-xs xs:text-[0.5rem]`}>{tag.name}</span>
+                                                        </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                            )
+                        }
                         <div>
                             {link && (
                                     <LinkButton href={link}>
                                         <Link class="size-2"/>
-                                        Preview
+                                       <span class="lg:text-xs xs:text-[0.5rem]">Preview</span>
                                     </LinkButton>
                             )}
                         </div>

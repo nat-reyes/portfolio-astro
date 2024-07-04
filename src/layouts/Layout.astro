@@ -19,10 +19,10 @@ const { description, title } = Astro.props
 		<meta name="generator" content={description} />
 		<title>{title}</title>
 	</head>
-	<body>
-	   <Header/>
+	<body class="relative m-auto sm:w-full md:w-[40rem] lg:w-[61.25rem] xl:w-[81.25rem]">
+	    <Header/>
 		<slot />
-	   <Footer />
+		<Footer />
 	</body>
 </html>
 <style is:global>
@@ -40,13 +40,7 @@ const { description, title } = Astro.props
 		flex-direction: column;
 		background: #F3F4FF;
 		overscroll-behavior: none;
-
-		@media (max-width: 768px) {
-			width: 1200px;
-			margin: 0 auto;
-			padding-inline: 30px;
-
-		}
+		min-height: 100vh;
 	}
 
 	code {

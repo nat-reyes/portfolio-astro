@@ -27,21 +27,13 @@ import { Image } from 'astro:assets';
 
 
 ---
-<style>
-    header {
-        position: sticky;
-        top: 0;
-        z-index: 1000; /* Esto asegura que el header esté por encima de otros elementos */
-        background-color: inherit; /* Esto asegura que el header no sea transparente */
-    }
-</style>
-<header class="flex justify-between items-center py-3 w-[1120px] mx-auto" >
-    <Image src={avatar} alt="logo" class="rounded-full w-12 h-12"/>
-    <nav class="flex flex-row gap-x-10 opacity-70 font-bold">
+<header class="sm:sticky sm:top-0 sm:z-[1000] sm:bg-inherit flex sm:justify-between items-center py-3 sm:mx-auto px-4 sm:px-6 lg:px-8 sm:w-[23.438] md:w-[40rem] lg:w-[61.25rem] xl:w-[81.25rem]">
+    <Image src={avatar} alt="logo" class="rounded-full w-12 h-12 "/>
+    <nav class="ml-4  sm:flex sm:flex-row flex flex-col gap-x-10 opacity-70 font-bold xs:gap-x-1">
         {
             navItems.map((link) => (
                     <a
-                            class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
+                            class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400 xs:text-sm"
                             aria-label={link.label}
                             href={link.url}
                     >
