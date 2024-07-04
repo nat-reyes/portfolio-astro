@@ -13,6 +13,8 @@ import Education from "../components/Education.astro";
 import { education, volunteering } from "../constants";
 import { Image } from 'astro:assets';
 import volunteeringIcon from "../../public/volunteering.png"
+import wip from "../../public/wip.png";
+import avatar from "../../public/portfolio-profile.png";
 
 const myInformation = {
     summary: "I specialize in JavaScript technologies, particularly React.js and Next.js, and have a proven track record of enhancing user experiences and optimizing performance. My collaborative work with UX designers has equipped me with the ability to create intuitive and user-friendly interfaces. I have successfully contributed to high-impact projects, including marketing websites and large-scale applications, consistently delivering high-quality solutions."
@@ -21,6 +23,10 @@ const myInformation = {
 
 <Layout title="Nat Reyes Portfolio, software engineer +4 yeras of experience."
         description="Contact Nat Reyes for web development.">
+    <div class="m-auto">
+        <Image src={wip} alt="wip image" class="w-40 h-40"/>
+        <span class="text-xl font-bold text-blue-950">Work in progress</span>
+    </div>
     <main class="w-full py-2">
         <SectionContainer class="w-full mx-auto py-20 px-4">
             <div>
@@ -77,9 +83,10 @@ const myInformation = {
             </h2>
             <Education data={volunteering} />
         </SectionContainer>
+        <SectionContainer class="mt-10">
+            <br/>
+            <span class="text-sm  text-blue-950">I am learning and testing new technologies. This website is created with:</span>
+            <span class="text-sm  text-blue-950">Astro, Tailwind, Github Actions, AWS s3, route53, cloudfront</span>
+        </SectionContainer>
     </main>
 </Layout>
-
-<style>
-
-</style>
