@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 review — two distinct date problems'
 owner: nat-reyes
-status: reviewed-export
+status: closed
 reviewed: '2026-11-02'
 signature: nat-reyes
 ---
@@ -15,6 +15,15 @@ signature: nat-reyes
 </script>
 
 This review concerns the export dated 4 October 2026. It is not a claim that the live desk has stopped receiving reports.
+
+## Engineering update — 5 October 2026
+
+The course's live desk update reports that #4471 was closed on 5 October:
+
+- **Parser — fixed:** `fix(dates): parse dd/mm for eu locales`. [Tracking issue](https://github.com/nat-reyes/portfolio-astro/issues/1) closed as completed.
+- **Hint — won't fix:** booking-v3 was retired. [Tracking issue](https://github.com/nat-reyes/portfolio-astro/issues/2) closed as not planned. Retirement is a different outcome from repairing the form.
+
+Source: the **engineering update** on [the challenge page](https://hq.mega.dev/challenges/what-it-shows#engineering-update), checked on 2 November 2026. The report counts below remain the 4 October export snapshot; the update supplies the later disposition, not new report counts.
 
 <Callout>The old “one issue, one fix” summary does not match the executable classification. Shared subjects and intake guesses are not sufficient evidence of a shared cause.</Callout>
 
