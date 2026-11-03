@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {uniqueById, groupByCause, readAs} from '../support-kb/src/lib/kb/causes.ts';
+const root=fileURLToPath(new URL('../',import.meta.url));
+const lib=path.join(root,'support-kb/src/lib');
+const rows=JSON.parse(fs.readFileSync(path.join(lib,'data/reports-4471.json')));
+const notes=JSON.parse(fs.readFileSync(path.join(lib,'data/desk-notes.json')));
+const tenants=Object.fromEntries(fs.readdirSync(path.join(lib,'data/tenants')).map(f=>{const t=JSON.parse(fs.readFileSync(path.join(lib,'data/tenants',f)));return [t.handle,t]}));
+const reports=uniqueById(rows).filter(r=>r.mergedInto===4471);
+const groups=groupByCause(reports,r=>tenants[r.tenant]);
+const output={snapshot:'2026-10-04',sourceRows:rows.length,uniqueReports:reports.length,duplicates:rows.length-uniqueById(rows).length,groups:groups.map(g=>({cause:g.cause,count:g.reports.length,tenants:g.tenants,firstSeen:g.firstSeen,lastSeen:g.lastSeen,intakeTags:g.taggedAs,oneDayMove:readAs(g,notes.oneDayMove),reportIds:g.reports.map(r=>r.id)}))};
+if(groups.reduce((n,g)=>n+g.reports.length,0)!==412 || groups.some(g=>g.cause==='unplaced'))throw Error('Review coverage before publishing');
+fs.writeFileSync(path.join(root,'analysis.json'),JSON.stringify(output,null,2)+'\n');
+console.log(JSON.stringify({...output,groups:output.groups.map(({reportIds,...rest})=>rest)},null,2));

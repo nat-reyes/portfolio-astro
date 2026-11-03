@@ -1,0 +1,45 @@
+---
+layout: runbook
+title: '#4471 review — two distinct date problems'
+owner: nat-reyes
+status: reviewed-export
+reviewed: '2026-11-02'
+signature: nat-reyes
+---
+
+<script>
+  import IncidentAudit from '#lib/kb/IncidentAudit.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+</script>
+
+This review concerns the export dated 4 October 2026. It is not a claim that the live desk has stopped receiving reports.
+
+<Callout>The old “one issue, one fix” summary does not match the executable classification. Shared subjects and intake guesses are not sufficient evidence of a shared cause.</Callout>
+
+## Count distinct reports, then resolve the tenant
+
+<IncidentAudit />
+
+## Separate the two problems
+
+- **Parser:** the shared parser reads dates month-first for day-first tenants. Correct the interpretation of input; cover ambiguous dates and inspect the flagged one-day-move reports.
+- **Hint:** booking-v3 tells users to type MM/DD/YYYY while interpreting dates day-first for these tenants. Align the guidance and accepted format. A parser fix alone does not establish that this mismatch was fixed.
+
+Consult each report's tenant locale and form version, then its channel. Do not substitute browserLocale or intakeTag for that lookup.
+
+## Queue timing is part of the evidence
+
+<QueueTimeline ticket={4471} />
+
+Reports existed before they were merged into the large ticket. A later merge date does not make them new incidents. Use receivedAt for arrival and mergedAt for filing; do not conflate them.
+
+## Triage and maintenance
+
+- Keep separate tickets for the two classified problems; count unique IDs once and preserve their supporting records.
+- Do not merge reports solely because their subject strings match. Compare behavior and the relevant tenant/form context; leave unsupported causes unresolved.
+- The accepted dedupe decision is historical. Propose a new decision instead of editing the old accepted record in place.
+- Recheck the live queue before submitting final counts. Tables here are computed from the current bundled export, not hard-coded into prose.
+
+<RenderStamp {signature} />
