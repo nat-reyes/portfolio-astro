@@ -4,7 +4,7 @@ title: '#4471 review — two distinct date problems'
 owner: nat-reyes
 status: closed
 reviewed: '2026-11-02'
-signature: nat-reyes
+signature: 'v1.eyJzdWIiOiI5ODIiLCJhdWQiOiJjaGFsbGVuZ2U6d2hhdC1pdC1zaG93cyIsImlhdCI6MTc5MzY3NjIyNSwiZXhwIjoxNzkzNzYyNjI1fQ.L8XB5aFCcSCOQyvOGQZAwQZBrT_TH6R8JBY-Le0NlYU'
 ---
 
 <script>
